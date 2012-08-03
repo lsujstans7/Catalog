@@ -36,7 +36,7 @@
 //Required methods for UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 5;
 }
 
 - (UITableViewCell *)
@@ -44,7 +44,7 @@ tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPat
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
     
-    cell.textLabel.text = @"hello";
+    cell.textLabel.text = @"This is my table.";
     
     return cell;
 }
