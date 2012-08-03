@@ -11,4 +11,6 @@
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
+@property(nonatomic, strong) NSMutableArray *items;
+
 @end

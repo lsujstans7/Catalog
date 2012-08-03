@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Book.h"
+#import "CD.h"
 
 @interface ViewController ()
 
@@ -14,11 +16,19 @@
 
 @implementation ViewController
 @synthesize itemsTableView;
+@synthesize items = _items;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.items = [NSMutableArray array];
+    
+
+    
+    [self.items addObject:[Book bookWithTitle:@"Objective-C" author:@"John" price:1.99 identificationNumber:100]];
+    
 }
 
 - (void)viewDidUnload
@@ -36,7 +46,7 @@
 //Required methods for UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.items.count;
 }
 
 - (UITableViewCell *)
@@ -44,7 +54,9 @@ tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPat
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
     
-    cell.textLabel.text = @"This is my table.";
+    Book *bookInstance = [self.items objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = bookInstance.title;
     
     return cell;
 }

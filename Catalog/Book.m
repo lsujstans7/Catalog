@@ -20,6 +20,8 @@
     newBook.author = author;
     newBook.price = price;
     newBook.identificationNumber = idNum;
+    
+    return newBook;
 }
 
 @end
